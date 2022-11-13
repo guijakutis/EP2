@@ -8,8 +8,8 @@ base = funcoes.transforma_base(questoes)
 pulo = 3
 ajuda = 2
 facil = 0
-pontuacao = 0
-lista_facil = []
+premio = 0
+lista = []
 num = 0
 questoes = 0
 tentativa = 1
@@ -34,22 +34,22 @@ while jogando:
     if questoes <= 3:
         num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'facil')
-        inedito = funcoes.sorteia_questao_inedita(base, 'facil', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, num)
+        nova = funcoes.sorteia_questao_inedita(base, 'facil', lista)
+        pergunta = funcoes.questao_para_texto(nova, num)
         print(pergunta)
     # QUESTÕES MÉDIAS
     if questoes > 3 and questoes <= 6:
         num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'medio')
-        inedito = funcoes.sorteia_questao_inedita(base, 'medio', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, num)
+        nova = funcoes.sorteia_questao_inedita(base, 'medio', lista)
+        pergunta = funcoes.questao_para_texto(nova, num)
         print(pergunta)
     # QUESTÕES DIFÍCIEIS
     if questoes > 6 and questoes <= 9:
         num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'dificil')
-        inedito = funcoes.sorteia_questao_inedita(base, 'dificil', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, num)
+        nova = funcoes.sorteia_questao_inedita(base, 'dificil', lista)
+        pergunta = funcoes.questao_para_texto(nova, num)
         print(pergunta)
     # PERGUNTAS
     resposta = input('Qual a sua resposta: ')
@@ -66,8 +66,7 @@ while jogando:
                 break
     # AJUDA
     if resposta == 'ajuda' and tentativa != 0:
-        # VARIÁVEIS AJUDA
-        aleatoria = inedito['opcoes']['A']
+        aleatoria = nova['opcoes']['A']
         ajudar = funcoes.gera_ajuda(questao_sorteada)
         tentativa -= 1
         # QUANDO NÃO TEM MAIS DIREITO A AJUDA
@@ -82,17 +81,17 @@ while jogando:
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
                 print('')
-            print(f'Dica:n/Opoções certamente erradas: {aleatoria}')
+            print(f'Dica: n/ Opções certamente erradas: {aleatoria}')
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
                 print('')
         # QUANDO TEM DIREITO A DOIS PULOS
         if ajuda == 2:
-            print('OK la vem ajuda! Você tem direito a mais uma ajuda!')
+            print('OK lá vem ajuda! Você tem direito a mais uma ajuda!')
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
                 print('')
-            print(f'Dica:n/Opoções certamente erradas: {aleatoria}')
+            print(f'Dica: n/ Opções certamente erradas: {aleatoria}')
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
                 print('')
@@ -104,6 +103,39 @@ while jogando:
             if resposta == 'ajuda':
                 print('Que pena! Você errou e vai sair sem nada')
                 break
+
+
+
+# CORRETO
+
+        if reposta == nova['correta']:
+            questoes += 1
+            if questoes == 1:
+                premio = 1000
+        elif questoes == 2:
+            premio = 5000
+        elif questoes == 3:
+            premio = 10000
+            print('HEY! Você passou para o nível MEDIO!')
+        elif questoes == 4:
+            premio = 30000
+        elif questoes == 5:
+            premio = 50000
+        elif questoes == 6:
+            premio = 100000
+            print('HEY! Você passou para o nível DIFICIL!')
+        elif questoes == 7:
+            premio = 300000
+        elif questoes == 8:
+            premio = 500000
+        elif questoes == 9:
+            print('PARABÉNS, você zerou o jogo e ganhou um milhão de reais! ')
+            pontuacao = 1000000
+        print(f'Voce acertou!! Seu premio atual e de R$ {premio}')
+        enter = input('Aperte ENTER para continuar...')
+        if enter == '':
+            print('')
+
 
 
         
