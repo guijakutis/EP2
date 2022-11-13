@@ -141,11 +141,7 @@ def sorteia_questao(questoes, nivel):
     return sorteia
 
 
-import random
 
-def sorteia_questao(questoes, nivel):
-    sorteia = random.choice(questoes[nivel])
-    return sorteia
 
 def sorteia_questao_inedita(dic, nivel, lista):
 

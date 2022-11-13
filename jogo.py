@@ -97,7 +97,13 @@ while jogando:
             if enter == '':
                 print('')
         print(pergunta)
-        # USO DE UMA AJUDA POR QUESTÃO
+        # AJUDA POR QUESTÃO
+        if tentativa == 0:
+            print('Você não tem direito a mais juda(s). Responda a pergunta:')
+            resposta = (input('Qual é a sua resposta?'))
+            if resposta == 'ajuda':
+                print('Que pena! Você errou e vai sair sem nada')
+                break
 
 
         
