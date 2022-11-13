@@ -1,14 +1,16 @@
-import random
+
 import funcoes
+import random
+import perguntas
+from perguntas import questoes
 
-
-base = funcoes
+base = funcoes.transforma_base(questoes)
 pulo = 3
 ajuda = 2
 facil = 0
-numero = 0
 pontuacao = 0
 lista_facil = []
+num = 0
 questoes = 0
 tentativa = 1
 
@@ -19,7 +21,7 @@ print(f'Ok, {nome}, você tem o direito a pular 3 vezes e 2 ajudas!/nAs opções
 enter = (input('Aperte ENTER para continuar...'))
 
 if enter == '':
-    print('/nO jogo já vai começar! Lá vem a primeira questão!/n/nVamos começar com questões do nível FÁCIL!')
+    print('O jogo já vai começar! Lá vem a primeira questão!/n/nVamos começar com questões do nível FÁCIL!')
 enter = (input('Aperte ENTER para continuar...'))
 if enter == '':
     print('')
@@ -30,24 +32,24 @@ jogando = True
 while jogando:
     # QUESTÕES FACEIS
     if questoes <= 3:
-        numero += 1
+        num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'facil')
-        inedito = funcoes.sorteia_questao(base, 'facil', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, numero)
+        inedito = funcoes.sorteia_questao_inedita(base, 'facil', lista_facil)
+        pergunta = funcoes.questao_para_texto(inedito, num)
         print(pergunta)
     # QUESTÕES MÉDIAS
     if questoes > 3 and questoes <= 6:
-        numero += 1
+        num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'medio')
         inedito = funcoes.sorteia_questao_inedita(base, 'medio', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, numero)
+        pergunta = funcoes.questao_para_texto(inedito, num)
         print(pergunta)
     # QUESTÕES DIFÍCIEIS
     if questoes > 6 and questoes <= 9:
-        numero += 1
+        num += 1
         questao_sorteada = funcoes.sorteia_questao(base, 'dificil')
         inedito = funcoes.sorteia_questao_inedita(base, 'dificil', lista_facil)
-        pergunta = funcoes.questao_para_texto(inedito, numero)
+        pergunta = funcoes.questao_para_texto(inedito, num)
         print(pergunta)
     # PERGUNTAS
     resposta = input('Qual a sua resposta: ')
@@ -96,6 +98,8 @@ while jogando:
                 print('')
         print(pergunta)
         # USO DE UMA AJUDA POR QUESTÃO
+
+
         
 
 
