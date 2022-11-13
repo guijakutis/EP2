@@ -2,9 +2,9 @@
 import funcoes
 import random
 import perguntas
-from perguntas import questoes
+from perguntas import quest
 
-base = funcoes.transforma_base(questoes)
+base = funcoes.transforma_base(quest)
 pulo = 3
 ajuda = 2
 facil = 0
@@ -15,9 +15,9 @@ questoes = 0
 tentativa = 1
 
 # INTRO
-print('Olá, você está na fortuna DesSoft e terá a oportunidade de enriquecer!/n')
+print('Olá, você está na fortuna DesSoft e terá a oportunidade de enriquecer!')
 nome = str(input('Qual o seu nome?: '))
-print(f'Ok, {nome}, você tem o direito a pular 3 vezes e 2 ajudas!/nAs opções de respostas são "A", "B", "C", "D", "ajuda", "pula" e "parar"!/n')
+print(f'Ok, {nome}, você tem o direito a pular 3 vezes e 2 ajudas!/nAs opções de respostas são "A", "B", "C", "D", "ajuda", "pula" e "parar"!')
 enter = (input('Aperte ENTER para continuar...'))
 
 if enter == '':
@@ -108,10 +108,10 @@ while jogando:
 
 # CORRETO
 
-        if reposta == nova['correta']:
-            questoes += 1
-            if questoes == 1:
-                premio = 1000
+    if resposta == nova['correta']:
+        questoes += 1
+        if questoes == 1:
+            premio = 1000
         elif questoes == 2:
             premio = 5000
         elif questoes == 3:
@@ -130,13 +130,18 @@ while jogando:
             premio = 500000
         elif questoes == 9:
             print('PARABÉNS, você zerou o jogo e ganhou um milhão de reais! ')
-            pontuacao = 1000000
-        print(f'Voce acertou!! Seu premio atual e de R$ {premio}')
+            premio = 1000000
+            print(f'Voce acertou!! Seu premio atual e de R$ {premio}')
         enter = input('Aperte ENTER para continuar...')
         if enter == '':
             print('')
 
-
+# ERRADA
+    if resposta != 'ajuda' and resposta != nova['correta'] and resposta != 'pular':
+        print('Que pena! Voce errou e vai sair sem nada.')
+        break
+    ajuda -= 1
+    facil += 1
 
         
 
