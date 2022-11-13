@@ -56,4 +56,47 @@ while jogando:
         pulo+=1
         print(f'Você tem {pulo} pulos.')
         print('')
+        if resposta == 'pular' and pulo <= 0:
+            print('Você não tem mais pulos. Responda a pergunta')
+            resposta = input('Qual a sua resposta?: ')
+            if resposta == 'pular':
+                print('Que pena! Você errou e vai sair sem nada!')
+                break
+    # AJUDA
+    if resposta == 'ajuda' and tentativa != 0:
+        # VARIÁVEIS AJUDA
+        aleatoria = inedito['opcoes']['A']
+        ajudar = funcoes.gera_ajuda(questao_sorteada)
+        tentativa -= 1
+        # QUANDO NÃO TEM MAIS DIREITO A AJUDA
+        if ajuda == 0:
+            print('Não deu! Você não tem mais direito a ajuda!')
+            enter = input('Aperte ENTER para continuar...')
+            if enter == '':
+                print('')
+        # QUANDO TEM DIREITO A UMA AJUDA
+        if ajuda == 1:
+            print('OK, lá vem ajuda! ATENÇÃO: Você não tem mais direito a ajudas!')
+            enter = input('Aperte ENTER para continuar...')
+            if enter == '':
+                print('')
+            print(f'Dica:n/Opoções certamente erradas: {aleatoria}')
+            enter = input('Aperte ENTER para continuar...')
+            if enter == '':
+                print('')
+        # QUANDO TEM DIREITO A DOIS PULOS
+        if ajuda == 2:
+            print('OK la vem ajuda! Você tem direito a mais uma ajuda!')
+            enter = input('Aperte ENTER para continuar...')
+            if enter == '':
+                print('')
+            print(f'Dica:n/Opoções certamente erradas: {aleatoria}')
+            enter = input('Aperte ENTER para continuar...')
+            if enter == '':
+                print('')
+        print(pergunta)
+        # USO DE UMA AJUDA POR QUESTÃO
+        
+
+
 
