@@ -54,14 +54,14 @@ while jogando:
     # PERGUNTAS
     resposta = input('Qual a sua resposta: ')
     #PULO
-    if resposta == 'pular' and pulo <= 1:
-        pulo+=1
+    if resposta == 'pula' and pulo >= 1:
+        pulo-=1
         print(f'Você tem {pulo} pulos.')
         print('')
-        if resposta == 'pular' and pulo <= 0:
+        if resposta == 'pula' and pulo <= 0:
             print('Você não tem mais pulos. Responda a pergunta')
             resposta = input('Qual a sua resposta?: ')
-            if resposta == 'pular':
+            if resposta == 'pula':
                 print('Que pena! Você errou e vai sair sem nada!')
                 break
     # AJUDA
@@ -87,6 +87,7 @@ while jogando:
                 print('')
         # QUANDO TEM DIREITO A DOIS PULOS
         if ajuda == 2:
+            ajuda -= 1
             print('OK lá vem ajuda! Você tem direito a mais uma ajuda!')
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
@@ -95,10 +96,11 @@ while jogando:
             enter = input('Aperte ENTER para continuar...')
             if enter == '':
                 print('')
+        ajuda -= 1
         print(pergunta)
         # AJUDA POR QUESTÃO
         if tentativa == 0:
-            print('Você não tem direito a mais juda(s). Responda a pergunta:')
+            print('Você não tem direito a mais ajuda(s). Responda a pergunta:')
             resposta = (input('Qual é a sua resposta?'))
             if resposta == 'ajuda':
                 print('Que pena! Você errou e vai sair sem nada')
@@ -145,11 +147,14 @@ while jogando:
             print('')
 
 # ERRADA
-    if resposta != 'ajuda' and resposta != nova['correta'] and resposta != 'pular':
+    if resposta != 'ajuda' and resposta != nova['correta'] and resposta != 'pula':
         print('Que pena! Voce errou e vai sair sem nada.')
         break
-    ajuda -= 1
+    
     facil += 1
+
+
+
 
         
 
