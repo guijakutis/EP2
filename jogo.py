@@ -112,22 +112,30 @@ while jogando:
         questoes += 1
         if questoes == 1:
             premio = 1000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 2:
             premio = 5000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 3:
             premio = 10000
             print('HEY! Você passou para o nível MEDIO!')
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 4:
             premio = 30000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 5:
             premio = 50000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 6:
             premio = 100000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
             print('HEY! Você passou para o nível DIFICIL!')
         elif questoes == 7:
             premio = 300000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 8:
             premio = 500000
+            print(f'Você acertou! Seu prêmio atual é de R$ {premio}')
         elif questoes == 9:
             print('PARABÉNS, você zerou o jogo e ganhou um milhão de reais! ')
             premio = 1000000
