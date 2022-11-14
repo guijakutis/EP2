@@ -13,7 +13,7 @@ lista = []
 num = 0
 questoes = 0
 tentativa = 1
-
+continuar_jogando = ''
 # INTRO
 print('Olá, você está na fortuna DesSoft e terá a oportunidade de enriquecer!')
 nome = str(input('Qual o seu nome?: '))
@@ -149,9 +149,14 @@ while jogando:
 # ERRADA
     if resposta != 'ajuda' and resposta != nova['correta'] and resposta != 'pula':
         print('Que pena! Voce errou e vai sair sem nada.')
+        continuar_jogando = input('Quer jogar novamente?')
+        if continuar_jogando == 'sim':
+            jogando = True
         break
     
     facil += 1
+
+
 
 
 
